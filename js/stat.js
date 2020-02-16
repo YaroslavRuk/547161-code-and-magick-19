@@ -51,7 +51,7 @@ window.renderStatistics = function (ctx, players, times) {
     if (players[i] === 'Вы') {
       ctx.fillStyle = 'rgba(255, 0, 0, 1)';
     } else {
-      ctx.fillStyle = 'hsl(255, '+getRandomInt(0, 100)+'%, 50%)';
+      ctx.fillStyle = 'hsl(255, ' + getRandomInt(0, 100) + '%, 50%)';
     }
     ctx.fillRect(CLOUD_X + GAP * 2 + (GAP * 2 + BAR_WIDTH) * i, 250, BAR_WIDTH, (1 - (barHeight * times[i]) / maxTime));
   }
