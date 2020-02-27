@@ -5,8 +5,7 @@ var WIZARD_SECOND_NAMES = ['да Марья', 'Верон', 'Мирабелла'
 var COATS = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
 var EYES = ['black', 'red', 'blue', 'yellow', 'green'];
 
-/*var fullName = WIZARD_NAMES[getRandomElement(WIZARD_NAMES)] + ' ' + WIZARD_SECOND_NAMES[getRandomElement(WIZARD_SECOND_NAMES)];*/
-
+// var fullName = WIZARD_NAMES[getRandomElement(WIZARD_NAMES)] + ' ' + WIZARD_SECOND_NAMES[getRandomElement(WIZARD_SECOND_NAMES)];
 
 function getRandomElement(randomArray) {
   return Math.round(Math.random() * randomArray.length - 1);
