@@ -49,6 +49,77 @@ function init() {
   var wizards = createWizardsProperties();
   drewWizards(wizards);
   userDialog.querySelector('.setup-similar').classList.remove('hidden');
-  userDialog.classList.remove('hidden');
 }
 init();
+
+var ESC_KEY = 'Escape';
+var ENTER_KEY = 'Enter';
+var setup = document.querySelector('.setup');
+var setupOpen = document.querySelector('.setup-open');
+var setupClose = setup.querySelector('.setup-close');
+
+var setupWizard = document.querySelector('.setup-wizard');
+var wizardCoat = setupWizard.querySelector('.wizard-coat');
+var wizardEyes = setupWizard.querySelector('.wizard-eyes');
+var setupFireballWrap = document.querySelector('.setup-fireball-wrap');
+var FIREBALLS_COLOURS = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
+
+var setupUserName = setup.querySelector('.setup-user-name');
+
+var isInputNameFocused = function () {
+  return document.activeElement !== setupUserName;
+};
+
+var onPopupEscPress = function (evt) {
+  if (evt.key === ESC_KEY && isInputNameFocused()) {
+    closePopup();
+  }
+};
+
+var openPopup = function () {
+  setup.classList.remove('hidden');
+  document.addEventListener('keydown', onPopupEscPress);
+};
+
+var closePopup = function () {
+  setup.classList.add('hidden');
+  document.removeEventListener('keydown', onPopupEscPress);
+};
+
+setupOpen.addEventListener('click', function () {
+  openPopup();
+});
+
+setupOpen.addEventListener('keydown', function (evt) {
+  if (evt.key === ENTER_KEY) {
+    openPopup();
+  }
+});
+
+setupClose.addEventListener('click', function () {
+  closePopup();
+});
+
+setupClose.addEventListener('keydown', function (evt) {
+  if (evt.key === ENTER_KEY) {
+    closePopup();
+  }
+});
+
+
+var changeColour = function (element, array) {
+  element.style.fill = getRandomElement(array);
+};
+
+
+wizardCoat.addEventListener('click', function () {
+  changeColour(wizardCoat, COATS);
+});
+
+wizardEyes.addEventListener('click', function () {
+  changeColour(wizardEyes, EYES);
+});
+
+setupFireballWrap.addEventListener('click', function () {
+  setupFireballWrap.style.background = getRandomElement(FIREBALLS_COLOURS);
+});
